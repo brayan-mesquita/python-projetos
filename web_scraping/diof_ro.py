@@ -23,9 +23,6 @@ def imprime_datas():
         print(doe[-14:-4])#DOE-24.10.2022
 imprime_datas()
 
-links_pdf[0]
-
-
 #========ABRINDO ARQUIVOS======#
 import PyPDF2
 file_url = links_pdf[0]
