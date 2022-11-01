@@ -4,24 +4,43 @@ from datetime import datetime
 from pathlib import Path
 import PyPDF2
 
-
-#requests
 url = 'https://diof.ro.gov.br/'
 response = requests.get(url)
 page = BeautifulSoup(response.text, 'html.parser')
 page_title = page.title.string
 
-def search_all_links_pdf():
+def procurar_links_com_pdf():
     links_a = []
     for link in page.find_all('a'):
         links_a.append(link.get('href'))
     return [pdf for pdf in links_a if 'pdf' in pdf ]
+a = procurar_links_com_pdf()
+print(a)
 
-links_pdf = search_all_links_pdf()
-def imprime_datas():
-    for doe in links_pdf:
-        print(doe[-14:-4])#DOE-24.10.2022
-imprime_datas()
+def criar_dicionario(lista):
+    dicionario = dict()
+    TRA = '-'
+    for i in lista:
+        if TRA.join(i[-14:-4].split('.')) in dicionario:
+            dicionario[f"{TRA.join(i[-14:-4].split('.'))}-s"] = i
+            continue
+        dicionario[TRA.join(i[-14:-4].split('.'))] = i
+    return dicionario
+d = criar_dicionario(procurar_links_com_pdf())
+print(d.keys())
+print('26-10-2022' in d)
+len(d)
+
+
+dicionario = criar_dicionario(procurar_links_com_pdf())
+dicionario['28-10-2022']
+for i in dicionario.keys():
+    print(i)
+
+
+
+
+
 
 #========ABRINDO ARQUIVOS======#
 import PyPDF2
