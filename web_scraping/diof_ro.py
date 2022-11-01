@@ -52,7 +52,7 @@ pdf = PyPDF2.PdfFileReader(arquivo_pdf)
 numero_paginas = pdf.getNumPages()
 numero_paginas
 
-#-----LEITURA DIOF
+#-----LEITURA DIOF-------#
 
 arquivo_pdf = open('27.10.2022.pdf', 'rb')
 pdf = PyPDF2.PdfFileReader(arquivo_pdf)
@@ -101,3 +101,5 @@ from urllib import request
 file_url = links_pdf[0]
 file = f'{links_pdf[0][-14:-4]}.pdf'
 request.urlretrieve(file_url , file )
+
+
