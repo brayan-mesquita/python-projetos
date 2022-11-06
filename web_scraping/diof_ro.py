@@ -14,8 +14,6 @@ def procurar_links_com_pdf():
     for link in page.find_all('a'):
         links_a.append(link.get('href'))
     return [pdf for pdf in links_a if 'pdf' in pdf ]
-a = procurar_links_com_pdf()
-print(a)
 
 def criar_dicionario(lista):
     dicionario = dict()
@@ -26,42 +24,31 @@ def criar_dicionario(lista):
             continue
         dicionario[TRA.join(i[-14:-4].split('.'))] = i
     return dicionario
-d = criar_dicionario(procurar_links_com_pdf())
-print(d.keys())
-print('26-10-2022' in d)
-len(d)
-
-
-dicionario = criar_dicionario(procurar_links_com_pdf())
-dicionario['28-10-2022']
-for i in dicionario.keys():
-    print(i)
+# d = criar_dicionario(procurar_links_com_pdf())
+# print(d.keys())
+# print('26-10-2022' in d)
+# len(d)
+#dicionario = criar_dicionario(procurar_links_com_pdf())
 
 
 
-
+#===========DONWLOAD==============#
+from urllib import request
+diarios_pdf = procurar_links_com_pdf()
+url_pdf = diarios_pdf[0]
+file_name = f'{url_pdf[-14:-4]}.pdf'
+request.urlretrieve(url_pdf ,  file_name)
 
 
 #========ABRINDO ARQUIVOS======#
 import PyPDF2
-file_url = links_pdf[0]
-file = f'{links_pdf[0][-14:-4]}.pdf'
-request.urlretrieve(file_url , file )
-arquivo_pdf = open('27.10.2022.pdf', 'rb')
-pdf = PyPDF2.PdfFileReader(arquivo_pdf)
-numero_paginas = pdf.getNumPages()
-numero_paginas
-
-#-----LEITURA DIOF-------#
-
-arquivo_pdf = open('27.10.2022.pdf', 'rb')
-pdf = PyPDF2.PdfFileReader(arquivo_pdf)
-numero_paginas = pdf.getNumPages()
-paginas = pdf.getPage(130)
-paginas.extract_text()
-
-
-
+name_pdf = diarios_pdf[0]
+name_pdf = f'{name_pdf[-14:-4]}.pdf'
+file_pdf = open(name_pdf, 'rb')
+pdf = PyPDF2.PdfFileReader(file_pdf)
+number_pages = pdf.getNumPages()
+page = pdf.getPage(130)
+page.extract_text()
 
 
 #===========GERENCIAR HORAS E DATA==============#
@@ -96,10 +83,5 @@ def criar_diretorios():
         nova_pasta = path / dia
         nova_pasta.mkdir()
 
-#===========DONWLOAD==============#
-from urllib import request
-file_url = links_pdf[0]
-file = f'{links_pdf[0][-14:-4]}.pdf'
-request.urlretrieve(file_url , file )
 
 
