@@ -1,14 +1,19 @@
 import PyPDF2
 import tabula as tb
-import warnings
-warnings.filterwarnings("ignore") 
+
 
 #pypdf2
 arquivo_pdf = open('01-11-2022.pdf', 'rb')
 pdf = PyPDF2.PdfFileReader(arquivo_pdf)
 numero_paginas = pdf.getNumPages()
-paginas = pdf.getPage(130)
-paginas.extract_text()
+paginas = pdf.getPage(1).extractText()
+len(paginas)
+
+
+dicionario = {}
+for i in range(100):
+    dicionario[i] = pdf.getPage(i).extract_text()
+dicionario[99]
 
 #tabula
 tb.environment_info()

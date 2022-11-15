@@ -29,7 +29,7 @@ def criar_dicionario(lista):
 # print('26-10-2022' in d)
 # len(d)
 #dicionario = criar_dicionario(procurar_links_com_pdf())
-
+diarios_pdf = a[0]
 
 
 #===========DONWLOAD==============#
@@ -59,9 +59,18 @@ page.extract_text()
 from pathlib import Path
 p = Path()
 p.absolute()
-web_scraping = p / 'web_scraping'
-sub_pasta = web_scraping / 'sub_pasta'
-sub_pasta.mkdir()
+
+#criando pasta
+diarios = p / 'diarios'
+diarios.mkdir()
+#criando arquivo
+arquivo = diarios / 'arquivo.txt'
+arquivo.touch()
+with arquivo.open('a+') as txt:
+    txt.write('teste, ')
+
+
+
 #transformando data, splitando separadores
 data = '10.10.2022'
 nova_pasta = p / '-'.join(data.split('.'))
