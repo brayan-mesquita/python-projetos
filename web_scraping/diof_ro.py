@@ -24,6 +24,7 @@ def criar_dicionario(lista):
             continue
         dicionario[TRA.join(i[-14:-4].split('.'))] = i
     return dicionario
+
 # d = criar_dicionario(procurar_links_com_pdf())
 # print(d.keys())
 # print('26-10-2022' in d)
