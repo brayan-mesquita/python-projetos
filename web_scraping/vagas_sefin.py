@@ -1,14 +1,18 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup   
 
 
 
-url = 'https://seleciona.sefin.ro.gov.br/'
-
+url = 'https://seleciona.sefin.ro.gov.br/' 
 response = requests.get(url)
-page = BeautifulSoup(response.text, 'html.parser')
-page_title = page.title.string
+soup = BeautifulSoup(response.text, 'html.parser')
 
-cl = page.select('.section-title')
+print(soup.prettify())
 
-len(cl)
+cl = soup.select('.section-title')
+sec = soup.find_all('section')
+sec
+
+
+def linha():
+    print('_'*100)

@@ -25,16 +25,22 @@ def criar_dicionario(lista):
         dicionario[TRA.join(i[-14:-4].split('.'))] = i
     return dicionario
 
-# d = criar_dicionario(procurar_links_com_pdf())
+d = criar_dicionario(procurar_links_com_pdf())
 # print(d.keys())
 # print('26-10-2022' in d)
 # len(d)
 #dicionario = criar_dicionario(procurar_links_com_pdf())
-diarios_pdf = a[0]
 
+#==================
+for i in range(10)
 
+a = list(d.values())
+a[1:4]
 #===========DONWLOAD==============#
 from urllib import request
+
+def nome_for_save():
+
 diarios_pdf = procurar_links_com_pdf()
 url_pdf = diarios_pdf[0]
 file_name = f'{url_pdf[-14:-4]}.pdf'
