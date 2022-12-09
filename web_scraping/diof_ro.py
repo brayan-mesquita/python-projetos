@@ -24,23 +24,33 @@ def criar_dicionario(lista):
             continue
         dicionario[TRA.join(i[-14:-4].split('.'))] = i
     return dicionario
-
+    
 d = criar_dicionario(procurar_links_com_pdf())
+lista = procurar_links_com_pdf()
+
+
+#capturar links em lista
+#fazer rotina de cheque de diof, com buscar na lista 
+nove = list()
+for i in range(len(lista)):
+    if '06.12' in lista[i]:
+        nove.append(lista[i])
+    if '06-12' in lista[i]:
+        nove.append(lista[i])
+
+nove[0]
+
+
 # print(d.keys())
 # print('26-10-2022' in d)
 # len(d)
 #dicionario = criar_dicionario(procurar_links_com_pdf())
 
-#==================
-for i in range(10)
-
-a = list(d.values())
-a[1:4]
 #===========DONWLOAD==============#
 from urllib import request
 
 def nome_for_save():
-
+    pass
 diarios_pdf = procurar_links_com_pdf()
 url_pdf = diarios_pdf[0]
 file_name = f'{url_pdf[-14:-4]}.pdf'

@@ -8,9 +8,9 @@ def valor(*args):
 def linha():
     print('_'*100)
 
-def exportar(variavel):
-    with open(f'{variavel}.txt', 'wr') as arquivo:
+def exportar(valor):
+    arquivo = 'valor_exportado.txt'
+    with open(f'arquivo.txt', 'wr') as arquivo:
         arquivo.write(b)
 
 
-        
