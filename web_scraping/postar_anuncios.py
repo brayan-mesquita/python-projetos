@@ -11,7 +11,7 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 #get password
 EMAIL = 'brayanmesquita@gmail.com'
 def password():
-    with open('token') as password:
+    with open('/Users/brayan/Documents/projetos/projetos_python/web_scraping/token') as password:
         senha = password.read()
     return senha
 

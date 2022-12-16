@@ -7,7 +7,7 @@ class Verifica_sefin():
         soup = BeautifulSoup(response.text, 'html.parser')
         id_services = soup.find('section', attrs={'id':'services'})
         if len(id_services) > 3:
-            return True
+            return Truef
         else:
             return False
 
